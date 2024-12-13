@@ -16,5 +16,12 @@ def add_todo(request):
 def delete_g(request,pk):
     todo_obj=Todoitem.objects.get(pk=pk)
     todo_obj.delete()
-    return redirect("add_todo")\
+    return redirect("add_todo")
+
+def edit_g(request,pk):
+    todo_obj=Todoitem.objects.all().values()
+    todo_obj.update()
+    return redirect("add_todo")
+
+
     

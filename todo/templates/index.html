@@ -12,7 +12,10 @@
         <input type="submit" value="add">
     </form>
     {% for i in todos %}
-    <p>{{ i.title1 }} <a href="{% url 'delete_g' i.pk %}">delete</a></p>
+    <p>{{ i.title1 }} <button><a href="{% url 'delete_g' i.pk %}">delete</a></button>
+    <p>{{ i.title1 }} <button><a href="{% url 'edit_g' i.pk %}">edit</a></button>
+
     {% endfor %}
+
 </body>
 </html>
