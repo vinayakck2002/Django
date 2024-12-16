@@ -19,9 +19,12 @@ def delete_g(request,pk):
     return redirect("add_todo")
 
 def edit_g(request,pk):
-    todo_obj=Todoitem.objects.all().values()
-    todo_obj.update()
-    return redirect("add_todo")
+    if request.method =="POST":
+          title1=request.POST.get('todo')
+          Todoitem.objects.filter(pk=pk).update(title1=title1)
+          return redirect('add_todo')
+    todo_obj=Todoitem.objects.get(pk=pk)
+    return render(request,'index.html',{'editor': todo_obj})
 
 
     
