@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="{% static '/css/style.css' %}">
 </head>
 <body>
+    {% include %}
     <div class="container">
     {% if editor %}
     <form action="{% url 'edit_g' editor.pk %}" method="post">
@@ -15,10 +16,9 @@
         <input class="enter_todo" type="text" name="todo" placeholder="Enter todo" value="{{editor.title1}}">
         <input class="input_add" type="submit" value="update">
     </div>
-
     </form>
-    {% else %}
 
+    {% else %}
     <form action="{% url 'add_todo' %}" method="post">
         {% csrf_token %} <!--for security must be include in django-->
         <div class="input">
@@ -27,20 +27,13 @@
         </div>
     </form>
 
-    
-    {% endif %}
-    {% for i in todos %}
-    <p>{{ i.title1 }} <button class="del"><a href="{% url 'delete_g' i.pk %}">delete</a></button> <button class="edit"><a href="{% url 'edit_g' i.pk %}" method="POST">edit</a></button>
-    {% endfor %}
-</div>
-
-
+    {% endif %}       
    
-
-
-
-    
-
+    {% for i in todos %}
+    <div class="todo-element"><p>{{ i.title1 }}</p><button class="del"> <a href="{% url 'delete_g' i.pk %}">delete</a></button><button class="edit"><a href="{% url 'edit_g' i.pk %}" method="POST">edit</a></button></div>
+    {% endfor %}
+  
+    </div>
 
 </body>
 </html>

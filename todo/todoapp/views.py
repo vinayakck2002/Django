@@ -20,8 +20,8 @@ def delete_g(request,pk):
 
 def edit_g(request,pk):
     if request.method =='POST':
-          title1=request.POST.get('todo')
-          Todoitem.objects.filter(pk=pk).update(title1=title1)
+          title=request.POST.get('todo')
+          Todoitem.objects.filter(pk=pk).update(title1=title)
           return redirect('add_todo')
     todo_obj=Todoitem.objects.get(pk=pk)
     return render(request,'index.html',{'editor': todo_obj})
