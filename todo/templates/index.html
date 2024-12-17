@@ -5,27 +5,34 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="{% static '/css/index.css' %}">
+    <link rel="stylesheet" href="{% static '/css/style.css' %}">
 </head>
 <body>
+    <div class="container">
     {% if editor %}
     <form action="{% url 'edit_g' editor.pk %}" method="post">
         {% csrf_token %} <!--for security must be include in django-->
-        <input type="text" name="todo" placeholder="enter todo" value="{{editor.title1}}">
-        <input type="submit" value="update">
+        <input class="enter_todo" type="text" name="todo" placeholder="Enter todo" value="{{editor.title1}}">
+        <input class="input_add" type="submit" value="update">
+    </div>
+
     </form>
     {% else %}
 
     <form action="{% url 'add_todo' %}" method="post">
         {% csrf_token %} <!--for security must be include in django-->
-        <input type="text" name="todo" placeholder="enter todo">
-        <input type="submit" value="add">
+        <div class="input">
+        <input class="enter_todo" type="text" name="todo" placeholder="Enter todo">
+        <input class="input_add" type="submit" value="add">
+        </div>
     </form>
+
     
     {% endif %}
     {% for i in todos %}
-    <p>{{ i.title1 }} <button><a href="{% url 'delete_g' i.pk %}">delete</a></button> <button><a href="{% url 'edit_g' i.pk %}" method="POST">edit</a></button>
+    <p>{{ i.title1 }} <button class="del"><a href="{% url 'delete_g' i.pk %}">delete</a></button> <button class="edit"><a href="{% url 'edit_g' i.pk %}" method="POST">edit</a></button>
     {% endfor %}
+</div>
 
 
    

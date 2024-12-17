@@ -19,7 +19,7 @@ def delete_g(request,pk):
     return redirect("add_todo")
 
 def edit_g(request,pk):
-    if request.method =="POST":
+    if request.method =='POST':
           title1=request.POST.get('todo')
           Todoitem.objects.filter(pk=pk).update(title1=title1)
           return redirect('add_todo')
