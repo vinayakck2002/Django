@@ -1,0 +1,60 @@
+.navbar {
+    /* list-style-type: none; */
+    /* overflow: hidden; */
+    margin: 0;
+    padding: 0;
+    border: 1px solid #e7e7e7;
+    background-color: #f3f3f3;
+    text-align: center
+  }
+.submit{
+    /* background-color: blue; */
+    margin-top: 35px;
+    display: flex;
+    justify-content: center;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    width: 300px;
+    padding: 20px;
+    margin-left: 38%;
+
+}
+.sub-btn{
+    cursor: pointer;
+}
+form{
+    display: flex;
+    justify-content: center;  
+    color: rgb(54, 53, 53);
+    
+}
+
+h2{
+    display: flex;
+    justify-content: center;
+    margin-top: 100px;
+}
+.up-img-del{
+    /* background-color: yellow; */
+    /* justify-content: space-between; */
+    margin-top: 90px;
+    margin-left: 15px;
+    display: flex;
+    justify-content: center;
+}
+
+
+img{
+    /* background-color: red; */
+    border-radius: 14px;
+    height: 200px;
+    width: 200px;
+}
+
+.del-btn a{
+    color:red;
+    text-decoration: none;
+}
+a{
+    display: flex;
+    justify-content: center;
+}

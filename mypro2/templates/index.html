@@ -1,27 +1,45 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static '/css/style.css' %}">
     <title>Document</title>
 </head>
 <body>
-    <h2>Upload Image</h2>
+    <nav class="navbar">
+    <h1>Upload Image</h1>
+    </nav>
     <!-- Make sure the form uses enctype="multipart/form-data" -->
+    <div class="submit">
+
+
     <form action="{% url 'img' %}" method="post" enctype="multipart/form-data">
         {% csrf_token %}
-        <input type="file" name="files" id="files">
-        <input type="submit" value="Submit">
+        <input  type="file" name="files" class="sub-btn">
+        <input type="submit" value="Submit" class="sub-btn">
     </form>
+
+
+    </div>
 
     <h2>Uploaded Images</h2>
     <!-- Display images -->
+    <div class="up-img-del">
+
     {% for i in feeds %}
         {% if i.main_image %}
-            <img src="{{ i.main_image.url }}" alt="Image" width="200">
+            <img class="img" src="{{ i.main_image.url }}" alt="Image" >
         {% else %}
             <p>No image available</p>
         {% endif %}
+    <div class="del-btn">
+    <a  href="{% url 'delete' i.id %}">delete</a>
+    </div>
     {% endfor %}
+</div>
+
+
 </body>
 </html>

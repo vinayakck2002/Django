@@ -9,10 +9,14 @@ def index(request):
         # Create and save a new ImgForm object with the uploaded image
         obj = ImgForm(main_image=mainimage)
         obj.save()
-        
         return redirect(index)  # Redirect to the index view to refresh the page
 
     # Fetch all ImgForm objects to display the images
     feeds = ImgForm.objects.all()
 
     return render(request, "index.html", {"feeds": feeds})
+
+def delete(request,pk):
+    img_del=ImgForm.objects.get(pk=pk)
+    img_del.delete()
+    return redirect(index)

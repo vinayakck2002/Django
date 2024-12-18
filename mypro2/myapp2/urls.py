@@ -4,7 +4,8 @@ from django.conf import settings
 from django.conf.urls.static import static
 
 urlpatterns = [
-    path('',views.index,name="img")
+    path('',views.index,name="img"),
+    path('delete/<pk>',views.delete,name='delete')
 
 
 ]
