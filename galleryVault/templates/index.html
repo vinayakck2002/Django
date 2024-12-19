@@ -1,0 +1,27 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static '/css/style.css' %}">
+    <title>galleryVault.net</title>
+</head>
+<body>
+    <h1>Gallery Vault</h1>
+   
+    <form action="{% url 'namemain' %}" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <input  type="file" name="files" class="sub-btn">
+        <input type="submit" value="Submit" class="sub-btn">
+    </form>
+    {% for i in feeds %}
+    <img class="img" src="{{ i.classimages.url }}" alt="Image" >
+    <a  href="{% url 'urdelete' i.id %}">delete</a>
+    {% endfor %}
+
+
+
+    
+</body>
+</html>
