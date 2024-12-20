@@ -5,7 +5,7 @@ from . models import Gallery
 def viewsmain(request):
     if request.method == "POST":
         imgdef = request.FILES['files']  # Get the uploaded file from the request
-        print(imgdef)  # You can remove this print statement after testing
+        # print(imgdef)  # You can remove this print statement after testing
         
         # Create and save a new ImgForm object with the uploaded image
         obj = Gallery(classimages=imgdef)
@@ -21,6 +21,12 @@ def delete(request,pk):
     imagefeeds.delete()
     return redirect(viewsmain)
 
+def add(request):
+    return render(request,'imgadd.html')
+def picture(request,id):
+    imagefeeds=Gallery.objects.get(pk=id)
+    feeds = imagefeeds.classimages.url
+    return render(request,'images.html',{"feeds":feeds})
 
 
 

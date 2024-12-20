@@ -8,17 +8,25 @@
     <title>galleryVault.net</title>
 </head>
 <body>
+    <nav>
+        <div class="nav-con">
     <h1>Gallery Vault</h1>
-   
-    <form action="{% url 'namemain' %}" method="post" enctype="multipart/form-data">
-        {% csrf_token %}
-        <input  type="file" name="files" class="sub-btn">
-        <input type="submit" value="Submit" class="sub-btn">
-    </form>
+        </div>
+    <button><a class="add-btn" href="{% url 'add' %}">Add</a></button>
+    </nav>
+
+    <div class="img-del">
+
     {% for i in feeds %}
-    <img class="img" src="{{ i.classimages.url }}" alt="Image" >
-    <a  href="{% url 'urdelete' i.id %}">delete</a>
+    <div class="img-del">
+    <a href="{% url 'pic' i.id %}">
+    <img class="img" src="{{ i.classimages.url }}" alt="Image">
+    <a class="urdelete" href="{% url 'urdelete' i.id %}">delete</a>
+    </a>
+    </div>
     {% endfor %}
+</div>
+
 
 
 
