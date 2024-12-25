@@ -23,6 +23,7 @@ def delete(request,pk):
 
 def add(request):
     return render(request,'imgadd.html')
+
 def picture(request,id):
     imagefeeds=Gallery.objects.get(pk=id)
     feeds = imagefeeds.classimages.url

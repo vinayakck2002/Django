@@ -21,7 +21,8 @@
     <div class="img-del">
     <a href="{% url 'pic' i.id %}">
     <img class="img" src="{{ i.classimages.url }}" alt="Image">
-    <a class="urdelete" href="{% url 'urdelete' i.id %}">delete</a>
+    <p>
+    <a class="urdelete" href="{% url 'urdelete' i.id %}">delete</a></p>
     </a>
     </div>
     {% endfor %}
