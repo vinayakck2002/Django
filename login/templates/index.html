@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Sign in</title>
     <link rel="stylesheet" href="{% static '/css/style.css' %}">
 </head>
 <body>
@@ -12,7 +12,7 @@
         <h1>Gallery Vault</h1>
         <h3>Enter your login </h3>
 
-        <form action="{% url 'namemain' %}" method="post" enctype="multipart/form-data">
+        <form action="{% url 'signin' %}" method="post" enctype="multipart/form-data">
             {% csrf_token %}
             <label for="first">Username:</label>
             <input type="text" id="first" name="first" placeholder="Enter your Username" required>
@@ -23,7 +23,12 @@
             <div class="submt">
                 <button type="submit">Submit</button>
             </div>
+            <div class="signup">
+                <p>Not  registered?<a href="{% url 'signup' %}">create an account</a></p>
+            </div>
+            
         </form>
+   
         
 </body>
 </html>

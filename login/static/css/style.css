@@ -62,3 +62,11 @@ button {
     justify-content: center;
     align-items: center;
 }
+.signup{
+    /* background-color: blue; */
+    display: flex;
+    justify-content: center;
+}
+a{
+    text-decoration: none;
+}
