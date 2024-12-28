@@ -15,7 +15,7 @@
         <form action="{% url 'signin' %}" method="post" enctype="multipart/form-data">
             {% csrf_token %}
             <label for="first">Username:</label>
-            <input type="text" id="first" name="first" placeholder="Enter your Username" required>
+            <input type="text" id="first" name="username" placeholder="Enter your Username" required>
 
             <label for="password">Password:</label>
             <input type="password" id="password" name="password" placeholder="Enter your Password" required>
